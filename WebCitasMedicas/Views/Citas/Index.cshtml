@@ -1,0 +1,84 @@
+﻿@using Modelo.Entidades;
+@model IEnumerable<Cita>
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Citas Médicas</h1>
+
+<p>Se presenta a continuación la lista de Citas registradas en el Sistema de Citas Medicas</p>
+
+<div class="container">
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Citas</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block"
+               asp-controller="Citas" asp-action="Create">
+                Crear Nueva Cita
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td> No. Cita</td>
+                    <td> Fecha de Registro </td>
+                    <td> Fecha de Cita </td>
+                    <td> Hora de Cita</td>
+                    <td> Día de Cita</td>
+                    <td> Paciente </td>
+                    <td> Medico </td>
+                    <td> Estado </td>
+                    <td> Acciones </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td> @item.CitaId </td>
+                    <td> @item.Fecha_Registro.ToString("dd/MM/yyyy h:mm") </td>
+                    <td> @item.Fecha_Cita.ToString("dd/MM/yyyy") </td>
+                    <td> @item.Hora.ToString(@"hh\:mm")</td>
+                    <td> @item.Fecha_Cita.ToString("dddd", new CultureInfo("es-ES"))</td>
+                    <td> @item.Paciente.Nombre </td>
+                    <td> @item.Medico.Nombre </td>
+                    <td> @item.Estado </td>
+                    <td>
+                        <a class="btn btn-warning"
+                           asp-controller="Citas" asp-action="Edit" asp-route-id="@item.CitaId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="Citas" asp-action="Delete" asp-route-id="@item.CitaId">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

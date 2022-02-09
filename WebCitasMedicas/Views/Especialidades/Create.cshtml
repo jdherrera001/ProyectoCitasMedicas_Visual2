@@ -1,0 +1,36 @@
+﻿@using Modelo.Entidades;
+@model Especialidad
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Especialidades</h1>
+<p>Se presenta a continuacion edicion de especialidades en el Sistema de Citas Medicas</p>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Crear nueva especialidad</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="Edit">
+                <div class="form-group">
+                    <label class="control-label"> Nombre</label>
+                    <input class="form-control" asp-for="Nombre" />
+
+                </div>
+                
+                <div class="form-group">
+
+                    <input type="submit" class="btn btn-primary" value="Crear Especialidad" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

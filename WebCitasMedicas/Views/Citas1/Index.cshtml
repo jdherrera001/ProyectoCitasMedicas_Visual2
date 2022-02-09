@@ -1,0 +1,66 @@
+﻿@using Modelo.Entidades
+@model IEnumerable<Cita>
+
+@{ ViewData["Title"] = "Lista de Citas";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Citas1</h1>
+
+<div class="container">
+
+    @*Mensaje de confirmación*@
+    @if (TempData["mensaje"] != null)
+    {
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    @TempData["mensaje"]
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">
+            &times;
+        </span>
+    </button>
+</div>}
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Citas</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Fecha de Registro</td>
+            <td>Fecha de Cita</td>
+            <td>Hora</td>
+            <td>Paciente</td>
+            <td>Médico</td>            
+            <td>Estado</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.CitaId</td>
+            <td>@item.Fecha_Registro</td>
+            <td>@item.Fecha_Cita.ToShortDateString()</td>
+            <td>@item.Hora</td>
+            <td>@item.Paciente.Nombre</td>
+            <td>@item.Medico.Nombre</td>        
+            <td>@item.Estado</td>
+            <td>
+                <a class="btn btn-warning"
+                   asp-controller="Citas1" asp-action="Validar" asp-route-id="@item.CitaId">
+                    Ver
+                </a>
+            </td>
+        </tr>}
+    </tbody>
+</table>}
+    </div>
+</div>

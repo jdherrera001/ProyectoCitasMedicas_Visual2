@@ -1,0 +1,43 @@
+﻿@using Modelo.Entidades;
+@model Horario
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Edicion de Horarios</h1>
+<p>Formulario para la edición de horarios del Sistema de Citas medicas</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Ud. esta actualizazando el Horario: @Model.HorarioId</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="Edit">
+                <input type="hidden" asp-for="HorarioId" />
+
+                <div class="form-group">
+                    <label class="control-label"> Hora Inicio</label>
+                    <input class="form-control" asp-for="Hora_Inicio" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Hora Fin</label>
+                    <input class="form-control" asp-for="Hora_Fin" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Cupo Límite</label>
+                    <input class="form-control" asp-for="Cupo_Limite" />
+                </div>
+  
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Actualizar Horario" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

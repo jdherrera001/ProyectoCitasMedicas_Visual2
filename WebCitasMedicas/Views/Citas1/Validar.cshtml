@@ -1,0 +1,61 @@
+﻿@using Modelo.Entidades
+
+@model Cita
+
+@{ ViewData["Title"] = "Edit";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Cita</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form method="post" asp-action="Validar">
+                <div class="form-group">
+                    <label class="control-label">Cita Id</label>
+                    <input class="form-control" asp-for="CitaId" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Paciente</label>
+                    <input class="form-control" asp-for="Paciente.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Médico</label>
+                    <input class="form-control" asp-for="Medico.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Médico</label>
+                    <input class="form-control" asp-for="Medico.Especialidad.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Estado</label>
+                    <input class="form-control" asp-for="Estado" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Validar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-8">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Médico</td>
+                        <td>Especialidad</td>
+                        <td>Hora</td>
+                        <td>Dia</td>
+                        <td>Aprobado</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+
