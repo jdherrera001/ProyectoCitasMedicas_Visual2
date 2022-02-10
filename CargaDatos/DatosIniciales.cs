@@ -446,9 +446,9 @@ namespace CargaDatos
             //datos de citas
             Cita c1 = new Cita()
             {
-                Fecha_Cita = new DateTime(2022, 02, 04),
+                Fecha_Cita = new DateTime(2022, 03, 04),
                 Fecha_Registro = new DateTime(2022, 01, 18,15,21,0,0),
-                Hora = new TimeSpan(10, 0, 0),
+                Hora = new TimeSpan(9, 0, 0),
                 Estado = 0,
                 Paciente = p1,
                 Medico = m1,
@@ -496,7 +496,7 @@ namespace CargaDatos
             };
             Cita c6 = new Cita()
             {
-                Fecha_Cita = new DateTime(2022, 02, 08),
+                Fecha_Cita = new DateTime(2022, 03, 04),
                 Fecha_Registro = new DateTime(2022, 01, 30, 12, 22, 0, 0),
                 Hora = new TimeSpan(9, 0, 0),
                 Estado = 0,
