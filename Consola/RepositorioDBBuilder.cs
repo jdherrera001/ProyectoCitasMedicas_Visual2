@@ -31,7 +31,7 @@ namespace Consola
                     break;
                 case nameof(DBTipoConn.MySql):
                     contextOptions = new DbContextOptionsBuilder<Repositorio>()
-                        .UseNpgsql(conn)
+                        .UseMySQL(conn)
                         .Options;
                     break;
                 default: // Por defecto usa la memoria como base de datos

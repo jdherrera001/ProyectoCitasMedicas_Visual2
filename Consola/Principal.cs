@@ -112,29 +112,29 @@ namespace Consola
                     );
                 }*/
                
-                var tmpDia = repos.dias
-                    .Where(dia =>
-                    dia.dia == "Lunes"                   
-                    );
-                var tmpHora = repos.horarios
-                    .Where(hora_i =>
-                    hora_i.Hora_Inicio == new TimeSpan(7, 0, 0)
-                    );
-                var tmpMedico = repos.medicos
-                   .Single(medico => medico.Nombre == "Jesús Carrera");
+            //    var tmpDia = repos.dias
+            //        .Where(dia =>
+            //        dia.dia == "Lunes"                   
+            //        );
+            //    var tmpHora = repos.horarios
+            //        .Where(hora_i =>
+            //        hora_i.Hora_Inicio == new TimeSpan(7, 0, 0)
+            //        );
+            //    var tmpMedico = repos.medicos
+            //       .Single(medico => medico.Nombre == "Jesús Carrera");
 
-                ProHorarios proaprobaciones = new ProHorarios(repos);
+            //    ProHorarios proaprobaciones = new ProHorarios(repos);
                 
-                foreach (var mat in tmpDia)
-                {
-                    var resultado = proaprobaciones.Aprobo(tmpMedico, mat);
-                    Console.WriteLine("El medico: " + tmpMedico.Nombre +
-                        (resultado ? " SI TIENE CITA " : " NO TIENE CITA ") +
-                        "el dia que trabaja es: " + mat.dia
-                        +
-                        " id med: " + mat.MedicoId
-                        );
-                }
+            //    foreach (var mat in tmpDia)
+            //    {
+            //        var resultado = proaprobaciones.Aprobo(tmpMedico, mat);
+            //        Console.WriteLine("El medico: " + tmpMedico.Nombre +
+            //            (resultado ? " SI TIENE CITA " : " NO TIENE CITA ") +
+            //            "el dia que trabaja es: " + mat.dia
+            //            +
+            //            " id med: " + mat.MedicoId
+            //            );
+            //    }
             }
         }
 

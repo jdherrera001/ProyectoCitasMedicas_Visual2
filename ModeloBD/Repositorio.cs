@@ -12,7 +12,7 @@ namespace ModeloBD
     {
 
         public Repositorio(DbContextOptions<Repositorio> options)
-            :base(options)
+            : base(options)
         {
 
         }
@@ -34,10 +34,11 @@ namespace ModeloBD
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            if (!options.IsConfigured)
-            {
-                options.UseSqlServer("Data Source=DESKTOP-RLNFUSA;Integrated Security=true; Initial Catalog=CitasMedicasV3");
-            }
+           //// if (!options.IsConfigured)
+           //// {
+           //     //options.UseSqlServer("Data Source=DESKTOP-RLNFUSA;Integrated Security=true; Initial Catalog=CitasMedicasV3");
+           //     options.UseMySQL("server=localhost;database=sga2; user=root; password=soporte");
+           //// }
         }
         protected override void OnModelCreating(ModelBuilder model)
         {
@@ -45,7 +46,7 @@ namespace ModeloBD
             model.Entity<Cita>()
             .HasOne(cita => cita.Paciente)
             .WithMany(paciente => paciente.Citas)
-            .OnDelete(DeleteBehavior.NoAction)          //DESACTIVAR BORRADO EN CASCADA
+            //.OnDelete(DeleteBehavior.NoAction)          //DESACTIVAR BORRADO EN CASCADA
             .HasForeignKey(cita => cita.PacienteId);
             
             //CITA - MEDICO             ----UNO A  VARIOS

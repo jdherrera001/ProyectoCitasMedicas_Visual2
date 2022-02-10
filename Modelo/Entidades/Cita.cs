@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Modelo.Entidades
 {
-    public enum EstadoCita { Pendiente,Confirmado}
+    public enum EstadoCita { Pendiente,Confirmado,Rechazado}
     
     public class Cita
     {
